@@ -1,0 +1,213 @@
+body
+{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;/*отступ сверху*/
+    color: #333;
+}
+*,
+*:before,/*первый потомок элемента; для content*/
+*:after/*последний потомок элемента; для content*/
+{
+    box-sizing: border-box;/*чтоб кнопки были в линию*/
+}
+
+h1,h2,h3,h4,h5,h6/*для всех заголовков задаем отступ 0*/
+{
+    margin: 0;
+}
+/*header*/
+.header
+{
+    width: 100%;
+    padding-top: 30px;
+    position: absolute;/*зависимость от предка "в упор"*/
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;/*порядок наложения*/
+}
+/*container*/
+.container
+{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.header__inner
+{
+    display: flex;/*растягивается на весь размер*/
+    justify-content: space-between;/*чтоб было справа*/
+    align-items: center;/*чтоб буквы были в центре*/
+    
+}
+.header__logo
+{
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+  
+}
+.nav/*все кнопки справа*/
+{
+    font-size: 14px;
+    text-transform: uppercase;/*все большие буквы*/
+}
+
+.nav__link/**каждая кнопка*/
+{
+    /*чтоб шли в строку*/
+    display: inline-block;/*чтоб в одну строчку отобразить блоки разных размеров*/
+    vertical-align: top;/*выравнивает верхнюю часть с верх частью всей строки*/
+
+    margin: 0 10px;
+    position: relative;/*чтоб под буквами была полоса*/
+    color: #fff;
+    font-weight: 3000;
+    text-decoration: none /*подчеркивание*/
+    
+    
+}
+.nav__link:after
+{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    display: none;/*чтоб убрать полосу*/
+    background-color: #fff;
+    position: absolute;
+    background-color: #fce38a;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+}
+.nav__link:hover/*если навести на элемент*/
+{
+color: #fce38a;
+}
+.nav__link:hover:after
+{
+    display: block;/*тогда покажет _____ */
+}
+/*intro*/
+.intro
+{
+    display: flex;
+    margin-top: 0;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center; /*для надписи в центре*/
+    background:
+    url(images/MoGo_FREE_Template_by_Laaqiq_01.jpg)center
+    no-repeat;
+    background-size: cover;/*РАСТЯЖЕИЕ НА ВЕСЬ КОНТЕЙНЕР С СОХР ПРОПОРЦИЙ*/
+}
+.intro__title
+{
+    color:#fff;
+    font-size: 90px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;/*выравнить по центру*/
+    line-height: 1;/*между*/
+
+}
+.intro__title::after
+{
+content: "";
+display: block;
+width: 60px;
+height: 3px;
+background-color: #fff;
+margin: 60px auto;
+}
+
+.intro__inner
+{
+    width: 100%;
+    min-width: 880px;
+    margin: 0 auto;
+    text-align: center;
+}
+.intro__suptitle
+{
+    font-size: 60px;
+    color: #fff;
+    font-family: 'Kaushan Script', cursive;
+    text-align: center;
+    margin-top: 15px;
+
+}
+.btn
+{
+    display: inline-block;
+    vertical-align: top;
+    border: 3px solid #fff;
+    padding: 8px 30px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: background .1s
+    linear, color .1s linear;
+
+}
+.btn:hover
+{
+    background-color: #fff;
+    color: #333;
+}
+.slider
+{
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   z-index: 1;
+   width: 100%;
+
+}
+.slider__inner
+{
+    display: flex;
+    justify-content: space-between;
+   
+
+}
+.slider__item
+{
+    width: 23%;
+    text-transform: uppercase;
+    position: relative;
+    font-size: 18px;
+    color: #fff;
+    padding: 20px 0;
+    border-top: 3px solid #fff;
+    opacity: 0.7;
+}
+
+.slider__item.active 
+{
+    opacity: 1;
+
+}
+.slider__item.active:before
+{
+    content: "";
+    display: block;
+    width: 70px;
+    height: 3px;
+    position: absolute;
+    top: -3px;
+    left: 0;
+    z-index: 1;
+    background-color: #f38181;
+}
+.slider__num
+{
+    font-size: 24px;
+    font-weight: 700;
+}
